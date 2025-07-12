@@ -16,10 +16,20 @@ spec:
       containers:
       - name: worker
         image: docker/example-voting-app-worker
+        env:
+        - name: REDIS
+          value: "redis-service"
+        - name: DB
+          value: "db-service"
+        - name: POSTGRES_USER
+          value: "postgres"
+        - name: POSTGRES_PASSWORD
+          value: "postgres"
         resources:
           requests:
-            cpu: "0.2"
-            memory: "128Mi"
+            cpu: "0.1"
+            memory: "64Mi"
           limits:
-            cpu: "0.5"
-            memory: "256Mi"
+            cpu: "0.3"
+            memory: "128Mi"
+
